@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Details - NSTU_QuickBill</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .navbar-custom {
+            background-color:#82c0ab;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: black;
+            font-weight: bold;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #cccccc;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .header {
+            text-align:center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            
+            width: 80px;
+            height: 80px;
+        }
+        .header h1 {
+            margin: 10px 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 0;
+            font-size: 18px;
+        }
+        .bill-details {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .bill-details h3 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .bill-details table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .bill-details table th,
+        .bill-details table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .bill-details table th {
+            background-color: #f0f0f0;
+        }
+        .forward-section {
+            margin-top: 40px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .forward-section h3 {
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #061e6d;
+            color: rgb(238, 231, 231);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: rgb(240, 230, 230);
+        }
+
+        .footer a:hover {
+            color: #cccccc;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: rgb(248, 247, 247);
+        }
+
+        .footer .social-icons a:hover {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">
+            <img src="../images/Logo.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;">
+            NSTU-Quickbill
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.htm"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.htm"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.htm"><i class="fas fa-envelope"></i> Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="trackbilllogin.htm"><i class="fas fa-search"></i> Track Bill</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell"></i> Notifications <span class="badge badge-danger" id="notification-count">0</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" id="notification-list">
+                        <a class="dropdown-item" href="#" data-notification-id="1">Director Submitted the bills</a>
+                        <a class="dropdown-item" href="#" data-notification-id="2">Exam Control Office forward the bill</a>
+                        <a class="dropdown-item" href="#" data-notification-id="3">Treasurer submitted the bill.</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="header">
+        <img src="nstulogo.png" alt="NSTU Logo">
+        <h1>নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়</h1>
+        <h1>Noakhali Science and Technology University</h1>
+        <p>Sonapur, Noakhali-3814, Bangladesh</p>
+        <p>Email:info@nstu.edu.bd</p>
+        <p>Website:www.nstu.edu.bd</p>
+    </div>
+    <div class="container">
+        <div class="bill-details">
+            <h3>বিলের বিস্তারিত</h3>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>পরীক্ষকের নাম</th>
+                        <td>মোঃ ইফতেখারুজ্জামান</td>
+                        <th>বর্ষ</th>
+                        <td>২</td>
+                    </tr>
+                    <tr>
+                        <th>পদবি সহকারে ঠিকানা</th>
+                        <td>সাধারণঃ অসাধারণ, পাবলিক সি, টিউটোরিয়াল</td>
+                        <th>টার্ম</th>
+                        <td>২</td>
+                    </tr>
+                    <tr>
+                        <th>পরীক্ষার সাল</th>
+                        <td>২০২৩</td>
+                        <th>পরীক্ষার তারিখ</th>
+                        <td>৮ ডিসেম্বর, ২০২৩</td>
+                    </tr>
+                    <tr>
+                        <th>প্রশ্নপত্র প্রণয়ন</th>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>কোর্স কোড</th>
+                                    <th>কোর্স শিরোনাম</th>
+                                    <th>ঘন্টা</th>
+                                </tr>
+                                <tr>
+                                    <td>CSE 2205</td>
+                                    <td>ইনফরমেশন সিকিউরিটি</td>
+                                    <td>২</td>
+                                </tr>
+                                <tr>
+                                    <td>SE 2209</td>
+                                    <td>সফটওয়্যার ইঞ্জিনিয়ারিং</td>
+                                    <td>৩</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>প্রশ্নের সমন্বয় সমাধান</th>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>কোর্স কোডগুলি</th>
+                                    <th>প্রশ্ন সংখ্যা</th>
+                                    <th>সদস্যের সংখ্যা</th>
+                                </tr>
+                                <tr>
+                                    <td>CSE 2201, CSE 2205, CSE 2207, SE 2209</td>
+                                    <td>৮</td>
+                                    <td>৫</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>ক্লাস টেস্ট / ক্লাস পারফরমেন্স / অ্যাসাইনমেন্ট</th>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>কোর্স কোড</th>
+                                    <th>কোর্স শিরোনাম</th>
+                                    <th># শিক্ষার্থী</th>
+                                    <th># কুইজ/অ্যাসাইনমেন্ট</th>
+                                </tr>
+                                <tr>
+                                    <td>SE 2209</td>
+                                    <td>সফটওয়্যার রিকোয়ারমেন্ট স্পেসিফিকেশন এন্ড অ্যানালাইসিস</td>
+                                    <td>৩৩</td>
+                                    <td>৩</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>উত্তর পত্র মূল্যায়ন</th>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>কোর্স কোড</th>
+                                    <th>কোর্স শিরোনাম</th>
+                                    <th>ঘন্টা</th>
+                                    <th># শিক্ষার্থী</th>
+                                    <th>পরীক্ষার ধরন</th>
+                                </tr>
+                                <tr>
+                                    <td>SE 2209</td>
+                                    <td>সফটওয়্যার রিকোয়ারমেন্ট স্পেসিফিকেশন এন্ড অ্যানালাইসিস</td>
+                                    <td>২</td>
+                                    <td>৩৩</td>
+                                    <td>বার্ষিক</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>অতিরিক্ত ডিউটি</th>
+                        <td colspan="3">প্রধান পরীক্ষা নিরীক্ষণ</td>
+                    </tr>
+                    <tr>
+                        <th>অতিরিক্ত ঘন্টা</th>
+                        <td colspan="3">৫ ঘন্টা</td>
+                    </tr>
+                    <tr>
+                        <th>অতিরিক্ত হিসাব</th>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>খাত</th>
+                                    <th>টাকা</th>
+                                </tr>
+                                <tr>
+                                    <td>প্রশ্নপত্র প্রণয়ন</td>
+                                    <td>৫০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>প্রশ্নের সমন্বয় সমাধান</td>
+                                    <td>৩০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>ক্লাস টেস্ট</td>
+                                    <td>২০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>উত্তর পত্র মূল্যায়ন</td>
+                                    <td>৪০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>ব্যবহারিক পরীক্ষা</td>
+                                    <td>৬০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>মৌখিক পরীক্ষা</td>
+                                    <td>৫০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>পরীক্ষার ফল সন্নিবেশ করণ</td>
+                                    <td>৪০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>পরীক্ষার পরিষদের সভাপতি / সদস্য(সম্মানি ভাতা)</td>
+                                    <td>৭০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>অতিরিক্ত ডিউটি</td>
+                                    <td>১০০.০০</td>
+                                </tr>
+                                <tr>
+                                    <td>অতিরিক্ত ঘন্টা</td>
+                                    <td>৫০.০০</td>
+                                </tr>
+                                <tr>
+                                    <th>মোট</th>
+                                    <th>৩৭৫০.০০</th>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="forward-section">
+            <h3>বিল ফরওয়ার্ড করুন</h3>
+            <form>
+                <div class="form-group">
+                    <label for="forwardTo">ফরওয়ার্ড করুন:</label>
+                    <select class="form-control" id="forwardTo">
+                        <option value="">নির্বাচন করুন</option>
+                        <option>পরিচালক</option>
+                        <option>রেজিস্ট্রার অফিস</option>
+                        <option>ডিএএ অফিস</option>
+                        <option>পরীক্ষা নিয়ন্ত্রক</option>
+                        <option>ট্রেজারার</option>
+                        <option>উপাচার্য</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="approvalStatus">অনুমোদন অবস্থা:</label>
+                    <select class="form-control" id="approvalStatus">
+                        <option>অনুমোদিত</option>
+                        <option>অনুমোদিত নয়</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="remarks">মন্তব্য:</label>
+                    <textarea class="form-control" id="remarks" rows="3" placeholder="মন্তব্য লিখুন"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary"><a href="director.htm" class style="color: #151414;" ;">প্রেরণ</a></button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-md-left">
+                    <p>&copy; 2024 NSTU-Quickbill.</p>
+                </div>
+                <div class="col-md-6 text-md-right social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nstu_QuickBill</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-custom {
+            background-color:#82c0ab;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: hwb(0 4% 96%);
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #cccccc;
+        }
+
+        .user-section {
+            text-align: right;
+            color: #343a40;
+            margin-right: 15px;
+            margin-top: 15px;
+        }
+
+        .user-section img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .home-intro {
+            background-color: white;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .introduction {
+            width: 50%;
+            font-size: 24px;
+            font-weight: 500;
+            color: black;
+            text-align: center;
+        }
+        
+
+        .introduction p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .button {
+            height: 40px;
+            width: 140px;
+            background-color: #82c0ab;
+            font-size: 1rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px;
+            padding: 10px 20px;
+        }
+
+        .button:hover {
+            background-color: #1ca79e;
+        }
+
+        .home-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            background-color: #FFFFFF;
+        }
+
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: auto;
+            object-fit: contain;
+        }
+        @media (max-width: 768px) {
+            .home-intro {
+                flex-direction: column;
+            }
+            .introduction, .home-logo {
+                width: 100%;
+            }
+        }
+        
+
+        .button-section {
+            margin-top: 15px;
+        }
+
+        .button-section .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 18px;
+            padding: 15px 20px;
+            font-family: 'Arial', sans-serif;
+            border-radius: 5px;
+            background-color: #20dbc2;
+            border: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .button-section .btn:hover {
+            background-color: #1ca79e;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background-color: #061e6d ;
+            color: #e6dfdf;
+            padding: 10px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: hsl(0, 33%, 98%);
+        }
+
+        .footer a:hover {
+            color: hwb(0 92% 3%);
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            margin: 0 10px;
+            color: #ece8e8;
+        }
+
+        .container {
+            padding-bottom: 60px;
+        }
+
+        .user-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button-image {
+            text-align: center;
+        }
+
+        .button-image img {
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">
+            <img src="../images/Logo.png" alt="Logo">
+            NSTU-Quickbill
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.htm"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.htm"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactus.htm"><i class="fas fa-envelope"></i> Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.htm"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="home-intro">
+        <div class="introduction">
+            <h2><b>Welcome to Nstu_QuickBill</b><br>
+            <b>Sparking a New Era in<br> Billing System</b><br><br>
+            <p>Faculty bill submission made easy<br> with real-time tracking and efficient<br> communication, streamlining<br> administrative processes at NSTU</p>
+            <br>
+            <button type="button" class="button btn solid">
+                <a href="../html/login.htm" style="color: hsl(0, 3%, 7%);">Get Started</a>
+            </button>
+        </div>
+        
+        <div class="home-logo">
+            <div class="logo">
+                <img src="../GIF/indexpic.gif" alt="logo">
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 NSTU-Quickbill. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-linkedin-in"></a>
+                <a href="#" class="fab fa-instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
